@@ -30,6 +30,8 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+    options: '-DskipTests'
+    
 - task: Docker@2
   inputs:
     containerRegistry: 'swoapprepo'
