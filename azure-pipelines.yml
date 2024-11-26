@@ -35,28 +35,28 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'swoapprepo'
-    repository: 'sample-spring-microsoftservices'
+    repository: 'employee-service'
     command: 'buildAndPush'
     Dockerfile: 'employee-service/Dockerfile'
-    tags: "employee-service:$(Build.BuildId)"
+    tags: "$(Build.BuildId)"
 - task: Docker@2
   inputs:
     containerRegistry: 'swoapprepo'
-    repository: 'sample-spring-microsoftservices'
+    repository: 'department-service'
     command: 'buildAndPush'
     Dockerfile: 'department-service/Dockerfile'
-    tags: "department-service:$(Build.BuildId)"
+    tags: "$(Build.BuildId)"
 - task: Docker@2
   inputs:
     containerRegistry: 'swoapprepo'
-    repository: 'sample-spring-microsoftservices'
+    repository: 'gateway-service'
     command: 'buildAndPush'
     Dockerfile: 'gateway-service/Dockerfile'
-    tags: "gateway-service:$(Build.BuildId)"
+    tags: "$(Build.BuildId)"
 - task: Docker@2
   inputs:
     containerRegistry: 'swoapprepo'
-    repository: 'sample-spring-microsoftservices'
+    repository: 'organization-service'
     command: 'buildAndPush'
     Dockerfile: 'organization-service/Dockerfile'
-    tags: "organization-service:$(Build.BuildId)"
+    tags: "$(Build.BuildId)"
