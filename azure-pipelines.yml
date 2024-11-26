@@ -38,25 +38,25 @@ steps:
     repository: 'employee-service'
     command: 'buildAndPush'
     Dockerfile: 'employee-service/Dockerfile'
-    tags: "$(Build.BuildId)-$(parameters.environment)"
+    tags: "$(Build.BuildId).$(parameters.environment)"
 - task: Docker@2
   inputs:
     containerRegistry: 'swoapprepo'
     repository: 'department-service'
     command: 'buildAndPush'
     Dockerfile: 'department-service/Dockerfile'
-    tags: "$(Build.BuildId)-$(parameters.environment)"
+    tags: "$(Build.BuildId).$(parameters.environment)"
 - task: Docker@2
   inputs:
     containerRegistry: 'swoapprepo'
     repository: 'gateway-service'
     command: 'buildAndPush'
     Dockerfile: 'gateway-service/Dockerfile'
-    tags: "$(Build.BuildId)-$(parameters.environment)"
+    tags: "$(Build.BuildId).$(parameters.environment)"
 - task: Docker@2
   inputs:
     containerRegistry: 'swoapprepo'
     repository: 'organization-service'
     command: 'buildAndPush'
     Dockerfile: 'organization-service/Dockerfile'
-    tags: "$(Build.BuildId)-$(parameters.environment)"
+    tags: "$(Build.BuildId).$(parameters.environment)"
