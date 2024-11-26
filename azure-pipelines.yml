@@ -30,3 +30,9 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'swoapprepo'
+    repository: 'sample-spring-microsoftservices'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
