@@ -37,4 +37,4 @@ steps:
     containerRegistry: 'swoapprepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    tags: "$(Build.BuildId)"
+    tags: "$(Build.BuildId)-$(parameters.environment)"
