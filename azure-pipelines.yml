@@ -33,6 +33,8 @@ steps:
     options: '-DskipTests'
     
 - task: Docker@2
+  displayName: Build_Employee_Service
+  condition: eq('${{ parameters.environment }}', 'prod')
   inputs:
     containerRegistry: 'swoapprepo'
     repository: 'employee-service'
@@ -40,6 +42,8 @@ steps:
     Dockerfile: 'employee-service/Dockerfile'
     tags: "$(Build.BuildId)"
 - task: Docker@2
+  displayName: Build_Department_Service
+  condition: eq('${{ parameters.environment }}', 'prod')
   inputs:
     containerRegistry: 'swoapprepo'
     repository: 'department-service'
@@ -47,6 +51,8 @@ steps:
     Dockerfile: 'department-service/Dockerfile'
     tags: "$(Build.BuildId)"
 - task: Docker@2
+  displayName: Build_Gateway_Service
+  condition: eq('${{ parameters.environment }}', 'prod')
   inputs:
     containerRegistry: 'swoapprepo'
     repository: 'gateway-service'
@@ -54,6 +60,8 @@ steps:
     Dockerfile: 'gateway-service/Dockerfile'
     tags: "$(Build.BuildId)"
 - task: Docker@2
+  displayName: Build_Organization_Service
+  condition: eq('${{ parameters.environment }}', 'prod')
   inputs:
     containerRegistry: 'swoapprepo'
     repository: 'organization-service'
